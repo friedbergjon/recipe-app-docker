@@ -21,8 +21,8 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
-
 .auth {
+  padding-top:30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,15 +41,40 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin:100px;
   background-color: white;
   border-radius: 15%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 40px;
-  width: 400px;
+  max-width: 400px;
   background-color:#FABF1A;
   opacity: 60%;
 }
+@media screen and (max-width: 780px) {
+  a {
+    margin: 5px !important;
+    font-size: 20px !important;
+  }
+.auth-container-one {
+  align-items: center;
+  position: absolute;
+}
+.auth-container-two {
+   align-items: center;
+  position: absolute; 
+ padding-top:40em;
+}
+.logout{
+  margin-right:20px;
+}
 
+}
+
+@media screen and (max-width: 380px) {
+  
+  .auth-container-two{
+  padding-top:45em;}
+}
 .form-group {
   display: flex;
   flex-direction: column;
@@ -73,6 +98,7 @@ input {
 }
 
 .navbar {
+  padding-left:30px;
   margin: 0;
   width: 100%;
   height: 80px;
@@ -83,6 +109,9 @@ input {
   text-decoration: none;
   background-color:#4A11AC;
   font-family: "Snell Roundhand", "cursive";
+  position:absolute;
+  top:0;
+  
 }
 
 a {
@@ -98,11 +127,14 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding-top:-300px;
+  padding-left: 20px;
+  padding-right: 20px;
+ padding-bottom: 100px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  width: 400px;
+  margin: 200px;
+  max-width: 400px;
   background-color:#FABF1A;
   opacity: 60%;
 }

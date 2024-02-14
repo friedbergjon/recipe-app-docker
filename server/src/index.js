@@ -1,22 +1,29 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import cors from 'cors';
-import mongoose from 'mongoose';
+
 import { userRouter } from './routes/users.js';
 import { recipesRouter } from './routes/recipes.js';
 
-const app = express();
 
+
+
+const app = express();
+console.log(process.env.MONGODB_URI);
 app.use(express.json());
 app.use(cors());
 
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
 
-mongoose.connect("mongodb+srv://jonfriedberg:nahtanoJ+1@cluster0.nto5ko2.mongodb.net/Cluster0?retryWrites=true&w=majority",
+import mongoose from 'mongoose';
+
+mongoose.connect(process.env.MONGODB_URI,
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }
 );
-app.listen(3001, () => console.log("SERVER STRTED!"));
+app.listen(5000, () => console.log("SERVER STARTED!"));
 

@@ -24,7 +24,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-    const response = await axios.post("http://localhost:3001/auth/login", {
+    const response = await axios.post("http://localhost:5000/auth/login", {
          username,
           password, 
     });
@@ -33,11 +33,12 @@ const Login = () => {
     window.localStorage.setItem("userID", response.data.userID);
     navigate("/");
     } catch (err) {
-    console.error(err);
+    alert("Username or password is incorrect");
     }
     };
 
     return( 
+       <div className="auth-container-two">
         <div className="auth-container">
         <form onSubmit={handleSubmit}>
           <h2 className="auth-title">Login</h2>
@@ -62,6 +63,7 @@ const Login = () => {
           <button type="submit">Login</button>
         </form>
       </div>
+      </div>
     );
   };
 
@@ -75,7 +77,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        await axios.post("http://localhost:3001/auth/register", {
+        await axios.post("http://localhost:5000/auth/register", {
           username,
           password,
         });
@@ -86,6 +88,7 @@ const Login = () => {
     };
   
     return (
+      <div className="auth-container-one">
       <div className="auth-container">
         <form onSubmit={handleSubmit}>
           <h2 className="auth-title" >Register</h2>
@@ -109,6 +112,7 @@ const Login = () => {
           </div>
           <button type="submit">Register</button>
         </form>
+      </div>
       </div>
     );
   };
