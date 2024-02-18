@@ -2,13 +2,14 @@ version: '3.8'
 
 services:
   web:
-    build: .
+    mem_limit: 512m  # Limit memory usage to 512MB
+    build: ./
     ports:
       - "5000:5000"
-    depends_on:
-      - mongodb
     environment:
       - NODE_ENV=production
+    depends_on:
+      - mongodb
     networks:
       - app-network
 
