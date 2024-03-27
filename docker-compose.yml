@@ -13,20 +13,6 @@ services:
     networks:
       - app-network
 
-  client:  # New service definition for the client
-    mem_limit: 512m  # Limit memory usage to 512MB
-    build:
-      context: ./client
-      dockerfile: Dockerfile  # Specify the Dockerfile for the client service
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-    depends_on:
-      - web
-    networks:
-      - app-network
-
   mongodb:
     image: mongo:latest
     volumes:
