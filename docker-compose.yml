@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  web:
+    mem_limit: 512m  # Limit memory usage to 512MB
+    build: ./server
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  client:  # New service definition for the client
+    mem_limit: 512m  # Limit memory usage to 512MB
+    build:
+      context: ./client
+      dockerfile: Dockerfile  # Specify the Dockerfile for the client service
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - web
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb-data:

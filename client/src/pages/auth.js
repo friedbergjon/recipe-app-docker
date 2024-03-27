@@ -24,7 +24,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-    const response = await axios.post("http://localhost:5000/auth/login", {
+    const response = await axios.post("/api/auth/login", {
          username,
           password, 
     });
@@ -77,7 +77,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        await axios.post("http://localhost:5000/auth/register", {
+        await axios.post("/api/auth/register", {
           username,
           password,
         });
