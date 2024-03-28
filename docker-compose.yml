@@ -13,6 +13,16 @@ services:
     networks:
       - app-network
 
+  client:
+    mem_limit: 2048m  # Limit memory usage to 2048MB
+    image: nginx:latest  # Use the Nginx Docker image
+    volumes:
+      - ./client/build:/usr/share/nginx/html  # Mount client build directory
+    ports:
+      - "3000:80"  # Map port 80 of the container to port 3000 on the host
+    networks:
+      - app-network
+
   mongodb:
     image: mongo:latest
     volumes:

@@ -11,13 +11,16 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the client application code
-COPY client .
+COPY . .
 
 # Build the client application
 RUN npm run build
 
-# Use a lightweight web server (Nginx) to serve the built client application
-FROM nginx:alpine
+# Use the Nginx base image to serve the built client application
+FROM nginx:latest
+
+# Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
 
 # Copy the built client application from the previous stage to the appropriate directory in the Nginx image
 COPY --from=builder /home/ubuntu/recipe-app-docker/client/build /usr/share/nginx/html
