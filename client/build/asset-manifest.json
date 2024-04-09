@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.22511f8d.css",
-    "main.js": "/static/js/main.f6c11d62.js",
+    "main.js": "/static/js/main.e6106be3.js",
     "static/media/davey-gravy-DmO662qvWO8-unsplash.jpg": "/static/media/davey-gravy-DmO662qvWO8-unsplash.ccca848ca5b8e70458bd.jpg",
     "index.html": "/index.html",
     "main.22511f8d.css.map": "/static/css/main.22511f8d.css.map",
-    "main.f6c11d62.js.map": "/static/js/main.f6c11d62.js.map"
+    "main.e6106be3.js.map": "/static/js/main.e6106be3.js.map"
   },
   "entrypoints": [
     "static/css/main.22511f8d.css",
-    "static/js/main.f6c11d62.js"
+    "static/js/main.e6106be3.js"
   ]
 }
