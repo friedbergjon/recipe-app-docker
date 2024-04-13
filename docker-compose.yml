@@ -17,7 +17,7 @@ services:
     build: ./client  # Build the client service from the local files
     mem_limit: 2048m  # Limit memory usage to 2048MB
     ports:
-      - "3000:80"  # Map port 80 of the container to port 3000 on the host
+      - "80:80"  # Map port 80 of the container to port 3000 on the host
     networks:
       - app-network
 
