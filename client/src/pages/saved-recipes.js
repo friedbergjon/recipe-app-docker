@@ -12,7 +12,7 @@ export const SavedRecipes = () => {
 
         const fetchSavedRecipe = async() => {
             try{
-                const response = await axios.get(`http://3.140.55.154:5000/api/recipes/savedRecipes/${userID}`);
+                const response = await axios.get(`http://3.137.63.137/:5000/api/recipes/savedRecipes/${userID}`);
                 setSavedRecipes(response.data.savedRecipes);
             } catch (err) {
                 console.error(err);

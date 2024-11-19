@@ -1,36 +1,40 @@
-version: '3.8'
-
+version: '3'
 services:
-  web:
-    mem_limit: 512m  # Limit memory usage to 512MB
-    build: ./server
+  nginx:
+    image: nginx:latest
+    container_name: nginx-container
     ports:
-      - "5000:5000"
-    environment:
-      - NODE_ENV=production
+      - "81:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # This assumes you have a custom nginx.conf file
     depends_on:
-      - mongodb
+      - client
+      - web
     networks:
       - app-network
 
   client:
-    build: ./client  # Build the client service from the local files
-    mem_limit: 2048m  # Limit memory usage to 2048MB
-    ports:
-      - "80:80"  # Map port 80 of the container to port 3000 on the host
+    build: ./client  # Assuming you have a Dockerfile in the client directory
     networks:
       - app-network
+    ports:
+      - "80:80"  # Expose the client's port (optional if you want to expose client on host)
+
+  web:
+    image: recipe-app-docker-web  # Image name for your backend
+    build: ./server  # Assuming you have a Dockerfile in the server directory
+    networks:
+      - app-network
+    ports:
+      - "5000:5000"  # Exposes port 5000 of the container to port 5000 of the host
 
   mongodb:
     image: mongo:latest
-    volumes:
-      - mongodb-data:/data/db
+    container_name: mongodb
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  mongodb-data:

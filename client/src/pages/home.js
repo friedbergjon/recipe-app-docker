@@ -16,7 +16,7 @@ export const Home = () => {
 
         const fetchRecipe = async() => {
         try{
-            const response = await axios.get("http://3.140.55.154:5000/api/recipes");
+            const response = await axios.get("http://3.137.63.137:5000/api/recipes");
             setRecipes(response.data);
         } catch (err) {
             console.error(err);
@@ -25,7 +25,7 @@ export const Home = () => {
 
         const fetchSavedRecipe = async() => {
             try{
-                const response = await axios.get(`http://3.140.55.154:5000/api/recipes/savedRecipes/ids/${userID}`);
+                const response = await axios.get(`http://3.137.63.137:5000/api/recipes/savedRecipes/ids/${userID}`);
                 setSavedRecipes(response.data.savedRecipes);
             } catch (err) {
                 console.error(err);
@@ -42,7 +42,7 @@ export const Home = () => {
     const saveRecipe = async (recipeID) => {
     try{
        
-        const response = await axios.put("http://3.140.55.154:5000/api/recipes", {
+        const response = await axios.put("http://3.137.63.137:5000/api/recipes", {
             recipeID,
             userID,
         },

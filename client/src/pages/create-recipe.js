@@ -43,7 +43,7 @@ export const CreateRecipe = () =>{
    const onSubmit = async (event) => {
     event.preventDefault();
     try {
-        await axios.post("http://3.140.55.154:5000/api/recipes", { ...recipe },
+        await axios.post("http://3.137.63.137:5000/api/recipes", { ...recipe },
         { headers: { authorization: cookies.access_token }});
         alert ("Recipe Created");
         navigate("/");

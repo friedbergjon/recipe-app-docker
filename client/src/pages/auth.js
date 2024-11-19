@@ -24,7 +24,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-    const response = await axios.post("http://3.140.55.154:5000/api/auth/login", {
+    const response = await axios.post("http://3.137.63.137:5000/api/auth/login", {
          username,
           password, 
     });
@@ -77,7 +77,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        await axios.post("http://3.140.55.154:5000/api/auth/register", {
+        await axios.post("http://3.137.63.137:5000/api/auth/register", {
           username,
           password,
         });
