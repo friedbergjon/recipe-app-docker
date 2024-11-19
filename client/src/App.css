@@ -46,7 +46,7 @@ body {
   border-radius: 15%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 40px;
-  max-width: 400px;
+ max-width: 400px;
   background-color:#FABF1A;
   opacity: 60%;
 }
@@ -96,7 +96,6 @@ input {
   border-radius: 5px;
 
 }
-
 .navbar {
   padding-left:30px;
   margin: 0;
@@ -134,6 +133,7 @@ a {
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 200px;
+  min-width: 250px;
   max-width: 400px;
   background-color:#FABF1A;
   opacity: 60%;
@@ -146,11 +146,11 @@ a {
 
 .create-recipe-button{
   margin-top: 10px;
-
+  margin-bottom: 20px;
 
 }
 .create-recipe form {
-  display: flex;
+display: flex;
   flex-direction: column;
  
 }
